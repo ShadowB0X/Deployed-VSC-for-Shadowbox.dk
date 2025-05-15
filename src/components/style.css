@@ -1,0 +1,103 @@
+.wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .wrapper.light {
+    background-color: #f9f9f9;
+    color: #000;
+  }
+  
+  .wrapper.dark {
+    background-color: #1f1f1f;
+    color: #f0f0f0;
+  }
+  
+  .theme-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: 1px solid currentColor;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  .container {
+    display: grid;
+    gap: 1rem;
+    justify-items: center;
+    max-width: 400px;
+    width: 100%;
+  }
+  
+  .logo {
+    margin-bottom: 1rem;
+  }
+  
+  .remaining-time {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .timer-controls {
+    display: grid;
+    gap: 1rem;
+    align-items: center;
+  }
+  
+  .play-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .input-boxes {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .time-input label {
+    display: block;
+    font-size: 0.9rem;
+  }
+  
+  .time-input input {
+    width: 60px;
+    padding: 0.2rem;
+    text-align: center;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 0.5rem;
+  }
+  
+  .btn {
+    background-color: #e0e0e0;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background 0.2s;
+  }
+  
+  .wrapper.dark .btn {
+    background-color: #333;
+    color: white;
+  }
+  
+  .btn:hover {
+    background-color: #ccc;
+  }
+  
+  .wrapper.dark .btn:hover {
+    background-color: #444;
+  }
+  
