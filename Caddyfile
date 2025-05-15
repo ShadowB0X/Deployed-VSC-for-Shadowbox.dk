@@ -1,0 +1,6 @@
+shadowbox.dk {
+        root * /srv/timer
+        file_server
+        try_files {path} /index.html
+}
+
