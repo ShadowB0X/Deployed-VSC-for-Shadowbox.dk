@@ -1,0 +1,15 @@
+.container {
+    padding: 2rem;
+    background-color: #e0f7fa;
+    border-radius: 12px;
+  }
+  
+  .title {
+    font-size: 2rem;
+    color: #006064;
+  }
+  
+  .text {
+    font-size: 1.2rem;
+    color: #004d40;
+  }

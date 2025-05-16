@@ -1,8 +1,12 @@
+import styles from './VisionPage.module.css'
+
 export default function VisionPage() {
-    return (
-      <div>
-        <h1>🎧 Vision</h1>
-        <p>SoundAPI analyzes soundwaves, frequencies and BPMs to give meaning to sound.</p>
-      </div>
-    )
-  }
+  return (
+    <div className={styles.container}>
+      <h1 className={styles.title}>🎧 Vision</h1>
+      <p className={styles.text}>
+        SoundAPI analyzes soundwaves, frequencies, and BPMs to extract meaning from audio data.
+      </p>
+    </div>
+  )
+}
