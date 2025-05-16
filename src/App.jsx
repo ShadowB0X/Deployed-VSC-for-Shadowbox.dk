@@ -1,9 +1,12 @@
+import { BrowserRouter } from 'react-router-dom'
 import Timer from './components/Timer'
 
 function App() {
   return (
     <div>
-      <Timer />
+      <BrowserRouter>
+      <App />
+    </BrowserRouter>
     </div>
   )
 }
