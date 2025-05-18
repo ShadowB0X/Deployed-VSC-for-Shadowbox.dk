@@ -1,29 +1,48 @@
 .container {
-    padding: 2rem;
-    background-color: #f5f5f5;
-    border-radius: 12px;
-    text-align: center;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 2rem;
+
+  /* 🖤 Black background with radial gradient for subtle depth */
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
   
-  .title {
-    font-size: 2rem;
-    color: #333;
-  }
-  
-  .text {
-    font-size: 1.2rem;
-    color: #666;
-  }
-  .button {
-    margin-top: 1.5rem;
-    padding: 0.75rem 1.5rem;
-    background-color: #0070f3;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-  }
-  
+  /* ✨ Neon-like glow around edges */
+  box-shadow: 0 0 80px rgba(0, 255, 255, 0.05) inset;
+
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+.title {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
+}
+
+.text {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 0 5px rgba(0, 200, 255, 0.4);
+}
+
+.button {
+  padding: 0.75rem 1.5rem;
+  background-color: #00c8ff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  text-decoration: none;
+  box-shadow: 0 0 12px #00f2ff;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.button:hover {
+  background-color: #00a6d9;
+  box-shadow: 0 0 16px #00f2ff;
+}
