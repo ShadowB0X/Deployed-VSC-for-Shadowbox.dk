@@ -1,6 +1,7 @@
 import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
-import ImageBox from './imageBox';
+import ImageBox from './imageBox'; 
+import StarfieldCanvas from './StarfieldCanvas';
 
 
 export default function MainPage() {
@@ -19,6 +20,7 @@ export default function MainPage() {
       </p>
 
       <ImageBox />
+      
       <a
       href="/vision"
       className={styles.button}
@@ -33,6 +35,7 @@ export default function MainPage() {
       >
         View API Endpoints
       </a>
+      <StarfieldCanvas />
       <WaveBackground /> {/* 🌊 Add the SVG wave */}
     </div>
   );
