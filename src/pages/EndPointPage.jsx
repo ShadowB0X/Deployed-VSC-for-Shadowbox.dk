@@ -1,4 +1,4 @@
-import styles from '.components/EndPointPage.module.css'
+import styles from './components/EndPointPage.module.css'
 
 export default function EndPointPage() {
   return (
