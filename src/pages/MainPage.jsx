@@ -1,7 +1,7 @@
 import styles from '../components/MainPage.module.css';
-import WaveBackground from '../components/WaveBackground';
+import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
-import StarfieldCanvas from '../components/StarfieldCanvas'; // Import the starfield background component
+import StarfieldCanvas from './StarfieldCanvas'; // Import the starfield background component
 
 
 export default function MainPage() {
