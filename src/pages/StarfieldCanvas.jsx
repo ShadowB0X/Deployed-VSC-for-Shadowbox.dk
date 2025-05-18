@@ -1,5 +1,5 @@
 import { useEffect, useRef } from 'react';
-import './StarfieldCanvas.module.css';
+import '../components/StarfieldCanvas.module.css';
 
 const StarfieldCanvas = () => {
   const canvasRef = useRef(null);
