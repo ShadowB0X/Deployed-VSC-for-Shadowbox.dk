@@ -1,4 +1,4 @@
-import styles from './MainPage.module.css';
+import styles from '../components/MainPage.module.css';
 import ImageBox from './imageBox';
 
 export default function MainPage() {

@@ -1,4 +1,4 @@
-import styles from './ImageBox.module.css';
+import styles from '../components/ImageBox.module.css';
 import soundwave from '../assets/SoundWave.png';
 
 const ImageBox = () => {
