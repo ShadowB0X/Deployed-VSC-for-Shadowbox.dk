@@ -1,6 +1,6 @@
 import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
-import ImageBox from './imageBox';
+import ImageBox from '../components/imageBox';
 import StarfieldCanvas from './StarfieldCanvas'; // Import the starfield background component
 
 
