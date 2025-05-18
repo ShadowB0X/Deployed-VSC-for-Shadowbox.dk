@@ -13,7 +13,12 @@ export default function MainPage() {
       </p>
 
       <ImageBox />
-
+      <a
+      href="/vision"
+      className={styles.button}
+      >
+        Go to Vision
+      </a>
       <a
         href="https://api.powersurge.dk/api/routes"
         target="_blank"
