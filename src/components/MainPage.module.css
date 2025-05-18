@@ -1,3 +1,15 @@
+@keyframes ambientGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 .container {
   display: flex;
   flex-direction: column;
@@ -6,11 +18,13 @@
   min-height: 100vh;
   padding: 2rem;
 
-  /* 🖤 Black background with radial gradient for subtle depth */
-  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
-  
-  /* ✨ Neon-like glow around edges */
-  box-shadow: 0 0 80px rgba(0, 255, 255, 0.05) inset;
+  /* 🌌 Animated gradient background */
+  background: linear-gradient(-45deg, #000000, #0a0f1b, #001f2f, #0f0030);
+  background-size: 400% 400%;
+  animation: ambientGlow 20s ease infinite;
+
+  /* 💡 Subtle neon glow from inside */
+  box-shadow: 0 0 80px rgba(0, 255, 255, 0.03) inset;
 
   color: white;
   text-align: center;
