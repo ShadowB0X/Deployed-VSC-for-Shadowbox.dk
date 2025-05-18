@@ -9,7 +9,8 @@ export default function MainPage() {
       
       <h1 className={styles.title}>Welcome to SoundAPI</h1>
       <p className={styles.text}>
-        Navigate to /vision to learn about the vision, or click the button to explore API endpoints.
+        Unlock the power of intelligent audio analysis — extract meaning from sound, frequency, and rhythm using SoundAPI.
+        learn about the visions, or click the button to explore our API endpoints.
       </p>
 
       <ImageBox />
