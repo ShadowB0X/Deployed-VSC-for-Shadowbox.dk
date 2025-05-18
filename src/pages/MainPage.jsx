@@ -7,6 +7,15 @@ export default function MainPage() {
       <p className={styles.text}>
         Navigate to /vision to learn about the vision, or /endpoints to explore API endpoints.
       </p>
+      
+      <a
+        href="https://api.powersurge.dk/api/routes"
+        target="_blank"
+        rel="noopener noreferrer"
+        className={styles.button}
+      >
+        View API Endpoints
+      </a>
     </div>
   )
 }
