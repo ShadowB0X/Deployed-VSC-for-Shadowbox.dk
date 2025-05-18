@@ -30,3 +30,7 @@
   .button:hover {
     background-color: #005bb5;
   }
+  body {
+    background-image: url('assets/SoundWave.png');
+    background-size: cover;
+  }
