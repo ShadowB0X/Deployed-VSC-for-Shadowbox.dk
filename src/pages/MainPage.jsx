@@ -1,13 +1,12 @@
 import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
-import StarfieldCanvas from './StarfieldCanvas'; // Import the starfield background component
 
 
 export default function MainPage() {
   return (
     <div className={styles.container}>
-       <StarfieldCanvas /> {/* 🌌 STARFIELD BACKGROUND */}
+      
       <h1 className={styles.title}>Welcome to SoundAPI</h1>
       <p className={styles.text}>
         Navigate to /vision to learn about the vision, or click the button to explore API endpoints.
