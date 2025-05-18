@@ -11,42 +11,28 @@
 }
 
 .container {
-  position: relative; /* Important for wave positioning */
+  position: relative;
+  z-index: 1;
+  min-height: 100vh;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
-  padding: 2rem;
 
-  /* 🌌 Animated gradient background */
-  background: linear-gradient(-45deg, #000000, #0a0f1b, #001f2f, #0f0030);
+  background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
   background-size: 400% 400%;
   animation: ambientGlow 20s ease infinite;
 
-  /* 💡 Subtle neon glow from inside */
   box-shadow: 0 0 80px rgba(0, 255, 255, 0.03) inset;
 
   color: white;
   text-align: center;
-  overflow: hidden;
-  z-index: 1; /* Content stays above the wave */
-}
-
-.title {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 0 10px rgba(0, 200, 255, 0.8);
-}
-
-.text {
-  font-size: 1.2rem;
-  max-width: 600px;
-  margin-bottom: 1.5rem;
-  text-shadow: 0 0 5px rgba(0, 200, 255, 0.4);
 }
 
 .button {
+  position: relative;
+  z-index: 2;
   padding: 0.75rem 1.5rem;
   background-color: #00c8ff;
   color: #000;

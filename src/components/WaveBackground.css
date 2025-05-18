@@ -6,14 +6,15 @@
     overflow: hidden;
     line-height: 0;
     z-index: 0;
+    pointer-events: none;
   }
   
   .wave {
-    position: relative;
     display: block;
     width: 200%;
     height: 200px;
-    animation: waveMove 20s linear infinite;
+    animation: waveMove 12s linear infinite;
+    opacity: 1;
   }
   
   @keyframes waveMove {
