@@ -1,4 +1,4 @@
-import styles from '../VisionPage.module.css'
+import styles from '.components/VisionPage.module.css'
 
 export default function VisionPage() {
   return (
