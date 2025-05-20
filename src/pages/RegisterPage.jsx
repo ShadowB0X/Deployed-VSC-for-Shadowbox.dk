@@ -15,7 +15,7 @@ export default function RegisterPage() {
     }
 
     try {
-      const res = await fetch('https://api.powersurge.dk/api//user/register', {
+      const res = await fetch('https://api.powersurge.dk/api/user/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
