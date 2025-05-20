@@ -3,7 +3,7 @@ import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
 import IntroPopup from './IntroPopup';
-import Navbar from './NavBar'; // ✅ new nav
+import Navbar from './Navbar'; // ✅ new nav
 
 
 export default function MainPage() {
