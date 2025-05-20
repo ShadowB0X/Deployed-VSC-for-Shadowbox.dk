@@ -32,6 +32,10 @@ export default function MainPage() {
               </p>
 
               <ImageBox />
+              <div style={{ marginTop: '2rem', display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                <a href="/login" className={styles.button}>Login</a>
+                <a href="/register" className={styles.button}>Register</a>
+              </div>
             </div>
           </main>
 
