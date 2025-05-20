@@ -17,7 +17,6 @@ export default function UploadPage({ token }) {
     const formData = new FormData();
     formData.append('file', file);
 
-<<<<<<< HEAD
     const res = await fetch('https://api.powersurge.dk/api//audio/upload', {
       method: 'POST',
       headers: {
@@ -25,16 +24,6 @@ export default function UploadPage({ token }) {
       },
       body: formData
     });
-=======
-    try {
-      const res = await fetch('https://api.powersurge.dk/api/user/upload', {
-        method: 'POST',
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-        body: formData,
-      });
->>>>>>> 2c9b10e0f9199872b04f1afc361e103f8e807029
 
       if (res.ok) {
         setMessage("✅ Upload successful!");
