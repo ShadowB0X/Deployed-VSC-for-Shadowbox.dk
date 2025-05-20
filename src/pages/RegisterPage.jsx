@@ -29,8 +29,20 @@ export default function RegisterPage() {
         setPassword('');
         setConfirm('');
       } else {
-        const err = await res.text();
-        setMessage(`Registration failed: ${err}`);
+    let errorMsg = 'Unknown error';
+try {
+  const contentType = res.headers.get("content-type");
+  if (contentType && contentType.includes("application/json")) {
+    const json = await res.json();
+    errorMsg = json.message || JSON.stringify(json);
+  } else {
+    errorMsg = await res.text();
+  }
+} catch (e) {
+  // do nothing, fallback to default errorMsg
+}
+setMessage(`Registration failed: ${errorMsg}`);
+
       }
     } catch (error) {
       setMessage(`Error: ${error.message}`);
