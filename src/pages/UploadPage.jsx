@@ -15,7 +15,7 @@ export default function UploadPage({ token }) {
     }
 
     const formData = new FormData();
-    formData.append('file', file);
+    formData.append('audio', file);
 
     try {
       const res = await fetch('https://api.powersurge.dk/api//audio/upload', {
