@@ -27,7 +27,20 @@ export default function IntroPopup({ onFinish }) {
           exit={{ opacity: 0 }}
           transition={{ duration: 1 }}
         >
-          <div className={styles.wave}></div>
+          {/* 🔊 WAVE SVG Container */}
+          <div className={styles.waveContainer}>
+            <svg className={styles.waveSvg} viewBox="0 0 1200 120" preserveAspectRatio="none">
+              <defs>
+                <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#00d4ff" />
+                  <stop offset="100%" stopColor="#0070f3" />
+                </linearGradient>
+              </defs>
+              <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z" />
+            </svg>
+          </div>
+
+          {/* 🧠 Main text */}
           <motion.h1
             className={styles.text}
             initial={{ opacity: 0, y: 40 }}
