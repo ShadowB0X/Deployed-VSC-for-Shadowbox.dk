@@ -2,16 +2,16 @@ import { useState } from 'react';
 import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
-import IntroPopup from './IntroPopup'; // 👈 Add this
+import IntroPopup from './IntroPopup';
 
 export default function MainPage() {
   const [showIntro, setShowIntro] = useState(true);
 
   return (
     <div className={styles.container}>
-      {showIntro && <IntroPopup onFinish={() => setShowIntro(false)} />}
-
-      {!showIntro && (
+      {showIntro ? (
+        <IntroPopup onFinish={() => setShowIntro(false)} />
+      ) : (
         <>
           <h1 className={styles.title}>Welcome to SoundAPI</h1>
           <p className={styles.text}>
@@ -38,7 +38,7 @@ export default function MainPage() {
             View API Endpoints
           </a>
 
-          <WaveBackground /> {/* 🌊 Still appears as background */}
+          <WaveBackground />
         </>
       )}
     </div>
