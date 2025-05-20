@@ -1,8 +1,10 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,6 +17,7 @@ export default function LoginPage({ onLogin }) {
     if (res.ok) {
       const { token } = await res.json();
       onLogin(token);
+      navigate('/upload'); // 👈 redirect after successful login
     } else {
       alert('Login failed');
     }
