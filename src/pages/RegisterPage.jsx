@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 export default function RegisterPage() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [message, setMessage] = useState('');
@@ -20,12 +20,12 @@ export default function RegisterPage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ username, password }),
+        body: JSON.stringify({ email, password }),
       });
 
       if (res.ok) {
         setMessage('User registered successfully!');
-        setUsername('');
+        setEmail('');
         setPassword('');
         setConfirm('');
       } else {
@@ -54,9 +54,9 @@ setMessage(`Registration failed: ${errorMsg}`);
       <h2>Register</h2>
       <input
         type="text"
-        placeholder="Username"
+        placeholder="Email"
         value={username}
-        onChange={e => setUsername(e.target.value)}
+        onChange={e => setEmail(e.target.value)}
         required
       />
       <input
