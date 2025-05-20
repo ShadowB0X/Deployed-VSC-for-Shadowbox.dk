@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function UploadForm({ token }) {
+export default function UploadPage({ token }) {
   const [file, setFile] = useState(null);
 
   const handleUpload = async (e) => {
@@ -8,7 +8,7 @@ export default function UploadForm({ token }) {
     const formData = new FormData();
     formData.append('file', file);
 
-    const res = await fetch('https://api.powersurge.dk/api/user/register', {
+    const res = await fetch('https://api.powersurge.dk/api/user/upload', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`
