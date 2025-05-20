@@ -3,7 +3,12 @@ import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
 import IntroPopup from './IntroPopup';
+<<<<<<< HEAD
 import Navbar from './Navbar'; // ✅ Top navigation
+=======
+import Navbar from './Navbar'; // ✅ new nav
+
+>>>>>>> 2a4a1d56d130d3932929832ea88cdfbb79190b78
 
 export default function MainPage() {
   const [showIntro, setShowIntro] = useState(true);
