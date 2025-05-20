@@ -4,10 +4,14 @@ export default function FileList() {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    fetch('https://api.powersurge.dk/api//audio/result')
-      .then(res => res.json())
-      .then(data => setFiles(data));
-  }, []);
+  fetch('https://api.powersurge.dk/api//audio/result')
+    .then(res => res.json())
+    .then(data => {
+      console.log("DATA FRA API:", data);  // 👈 Tilføj denne
+      setFiles(data);
+    });
+}, []);
+
 
   return (
     <div>
