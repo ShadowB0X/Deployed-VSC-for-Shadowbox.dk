@@ -55,7 +55,7 @@ setMessage(`Registration failed: ${errorMsg}`);
       <input
         type="text"
         placeholder="Email"
-        value={username}
+        value={email}
         onChange={e => setEmail(e.target.value)}
         required
       />
