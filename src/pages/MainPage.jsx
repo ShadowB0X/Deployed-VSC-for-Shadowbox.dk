@@ -4,8 +4,6 @@ import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
 import IntroPopup from './IntroPopup';
 import Navbar from './Navbar'; // ✅ new nav
-import StarfieldCanvas from './StarfieldCanvas'; // ✅ new starfield
-
 
 
 export default function MainPage() {
@@ -33,7 +31,7 @@ export default function MainPage() {
                 Learn about the visions, or click the button to explore our API endpoints.
               </p>
 
-              <ImageBox /> <StarfieldCanvas />
+              <ImageBox /> 
             </div>
           </main>
 
