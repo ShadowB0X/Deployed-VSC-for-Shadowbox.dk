@@ -16,8 +16,15 @@ export default function LoginPage({ onLogin }) {
 
     if (res.ok) {
       const { token } = await res.json();
+
+      // Set the token AND wait for React to re-render
       onLogin(token);
-      navigate('/upload'); // 👈 redirect after successful login
+
+      // Defer navigation until token is set
+      // Wait a tick to allow App to re-render with token
+      setTimeout(() => {
+        navigate('/upload');
+      }, 0);
     } else {
       alert('Login failed');
     }
