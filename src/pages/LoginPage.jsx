@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [redirect, setRedirect] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -16,19 +16,16 @@ export default function LoginPage({ onLogin }) {
 
     if (res.ok) {
       const { token } = await res.json();
-
-      // Set the token AND wait for React to re-render
       onLogin(token);
-
-      // Defer navigation until token is set
-      // Wait a tick to allow App to re-render with token
-      setTimeout(() => {
-        navigate('/upload');
-      }, 0);
+      setRedirect(true); // ✅ trigger navigation AFTER token is set
     } else {
       alert('Login failed');
     }
   };
+
+  if (redirect) {
+    return <Navigate to="/upload" replace />;
+  }
 
   return (
     <form onSubmit={handleSubmit}>
