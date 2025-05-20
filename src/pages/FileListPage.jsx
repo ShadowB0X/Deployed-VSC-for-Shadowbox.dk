@@ -3,14 +3,16 @@ import { useEffect, useState } from 'react';
 export default function FileList() {
   const [files, setFiles] = useState([]);
 
-  useEffect(() => {
+useEffect(() => {
   fetch('https://api.powersurge.dk/api//audio/result')
     .then(res => res.json())
     .then(data => {
-      console.log("DATA FRA API:", data);  // 👈 Tilføj denne
+      console.log("👉 Data modtaget fra API:", data);
       setFiles(data);
-    });
+    })
+    .catch(err => console.error("❌ Fejl i fetch:", err));
 }, []);
+
 
 
   return (
