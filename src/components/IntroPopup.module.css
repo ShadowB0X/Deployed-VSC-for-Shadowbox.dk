@@ -1,19 +1,25 @@
 .overlay {
     position: fixed;
     inset: 0;
-    background: linear-gradient(to bottom, #000, #111);
+    background: linear-gradient(to bottom, #f0f4ff, #ffffff);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     z-index: 9999;
+    overflow: hidden;
   }
   
   .text {
     font-size: 2.5rem;
     font-weight: bold;
-    color: white;
+    color: #222;
     z-index: 2;
+    text-align: center;
+    padding: 1rem 2rem;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   }
   
   .wave {
@@ -21,17 +27,19 @@
     bottom: 0;
     width: 100%;
     height: 30vh;
-    background: radial-gradient(circle, #444, transparent);
+    background: linear-gradient(135deg, #0070f3 0%, #00d4ff 100%);
     animation: wave 3s ease-in-out infinite alternate;
     z-index: 1;
-    opacity: 0.3;
+    opacity: 0.6;
+    border-top-left-radius: 40% 60%;
+    border-top-right-radius: 40% 60%;
   }
   
   @keyframes wave {
     0% {
-      transform: translateY(20px) scaleX(1.1);
+      transform: translateY(10px) scaleX(1.05);
     }
     100% {
-      transform: translateY(-20px) scaleX(0.9);
+      transform: translateY(-10px) scaleX(0.95);
     }
   }
