@@ -14,11 +14,9 @@
   position: relative;
   z-index: 1;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 0; /* 🔧 fjern default padding */
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
 
   background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
   background-size: 400% 400%;
@@ -30,6 +28,36 @@
   text-align: center;
 }
 
+/* 🧱 Wrapper til at kompensere for sticky navbar */
+.contentWrapper {
+  padding-top: 80px; /* 🔧 matcher Navbarens højde */
+  flex: 1; /* fylder resten af skærmen */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.content {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+/* 💬 Typografi */
+.title {
+  font-size: 2.5rem;
+  color: white;
+  font-weight: bold;
+}
+
+.text {
+  color: #ccc;
+  margin: 1rem 0;
+  line-height: 1.6;
+}
+
+/* 🎯 Knappen du bruger i content */
 .button {
   position: relative;
   z-index: 2;
