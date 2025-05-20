@@ -8,7 +8,7 @@ export default function UploadForm({ token }) {
     const formData = new FormData();
     formData.append('file', file);
 
-    const res = await fetch('/audio/upload', {
+    const res = await fetch('https://api.powersurge.dk/api/user/register', {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${token}`
