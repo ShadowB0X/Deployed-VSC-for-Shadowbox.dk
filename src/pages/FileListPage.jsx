@@ -4,7 +4,7 @@ export default function FileList() {
   const [files, setFiles] = useState([]);
 
   useEffect(() => {
-    fetch('/audio/file')
+    fetch('https://api.powersurge.dk/api//audio/result')
       .then(res => res.json())
       .then(data => setFiles(data));
   }, []);
