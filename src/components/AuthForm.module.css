@@ -1,0 +1,78 @@
+/* THIS IS LOGIN AND REGISTER CSS*/
+
+@keyframes ambientGlow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .authContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  
+    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
+    background-size: 400% 400%;
+    animation: ambientGlow 20s ease infinite;
+  
+    color: white;
+    padding: 2rem;
+  }
+  
+  .formBox {
+    background: rgba(255, 255, 255, 0.02);
+    backdrop-filter: blur(8px);
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+    padding: 2rem;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #00c8ff;
+  }
+  
+  input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    background: #111;
+    color: white;
+    border: 1px solid #333;
+    border-radius: 8px;
+    transition: border 0.3s ease;
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #00c8ff;
+  }
+  
+  button {
+    width: 100%;
+    padding: 0.75rem;
+    background: #00c8ff;
+    border: none;
+    border-radius: 8px;
+    color: black;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 0 12px #00f2ff;
+    transition: background 0.3s ease;
+  }
+  
+  button:hover {
+    background: #00a6d9;
+  }
+  
+  .message {
+    margin-top: 1rem;
+    color: #ccc;
+    font-size: 0.95rem;
+  }

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
+import styles from '../components/AuthForm.module.css';
 
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -17,7 +18,7 @@ export default function LoginPage({ onLogin }) {
     if (res.ok) {
       const { token } = await res.json();
       onLogin(token);
-      setRedirect(true); // ✅ trigger navigation AFTER token is set
+      setRedirect(true);
     } else {
       alert('Login failed');
     }
@@ -28,20 +29,25 @@ export default function LoginPage({ onLogin }) {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Login</h2>
-      <input
-        value={email}
-        onChange={e => setEmail(e.target.value)}
-        placeholder="Email"
-      />
-      <input
-        type="password"
-        value={password}
-        onChange={e => setPassword(e.target.value)}
-        placeholder="Password"
-      />
-      <button type="submit">Login</button>
-    </form>
+    <div className={styles.authContainer}>
+      <form onSubmit={handleSubmit} className={styles.formBox}>
+        <h2>Login</h2>
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={e => setEmail(e.target.value)}
+          required
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={e => setPassword(e.target.value)}
+          required
+        />
+        <button type="submit">Login</button>
+      </form>
+    </div>
   );
 }

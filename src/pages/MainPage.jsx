@@ -31,7 +31,7 @@ export default function MainPage() {
                 Learn about the visions, or click the button to explore our API endpoints.
               </p>
 
-              <ImageBox />
+              <ImageBox /> 
             </div>
           </main>
 
