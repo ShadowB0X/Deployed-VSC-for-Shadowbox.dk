@@ -3,43 +3,26 @@ import { useEffect, useState } from 'react';
 export default function FileList() {
   const [files, setFiles] = useState([]);
 
-useEffect(() => {
-  fetch('https://api.powersurge.dk/api//audio/result')
-    .then(res => res.json())
-    .then(data => {
-      console.log("👉 Data modtaget fra API:", data);
-      setFiles(data);
-    })
-    .catch(err => console.error("❌ Fejl i fetch:", err));
-}, []);
-
-
+  useEffect(() => {
+    fetch('https://api.powersurge.dk/api//audio/result')
+      .then(res => res.json())
+      .then(data => {
+        console.log("👉 Data modtaget fra API:", data);
+        setFiles(data.results); // Brug kun result-listen
+      })
+      .catch(err => console.error("❌ Fejl i fetch:", err));
+  }, []);
 
   return (
     <div>
-      <h2>Analyzed Audio Files</h2>
-      <table border="1" cellPadding="8" style={{ borderCollapse: 'collapse', width: '100%' }}>
-        <thead>
-          <tr>
-            <th>ID</th>
-            <th>Filename</th>
-            <th>BPM</th>
-            <th>Result Data</th>
-            <th>Uploaded At</th>
-          </tr>
-        </thead>
-        <tbody>
-          {files.map((file) => (
-            <tr key={file.id}>
-              <td>{file.id}</td>
-              <td>{file.audioFile?.filename}</td>
-              <td>{file.audioFile?.bpm?.toFixed(2) ?? 'N/A'}</td>
-              <td>{file.resultData}</td>
-              <td>{file.audioFile?.uploadedAt?.split('T')[0]}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <h2>Audio Files</h2>
+      <ul>
+        {files.map(f => (
+          <li key={f.id}>
+            <strong>{f.audioFile?.filename}</strong> – BPM: {f.audioFile?.bpm?.toFixed(2)}
+          </li>
+        ))}
+      </ul>
     </div>
   );
 }
