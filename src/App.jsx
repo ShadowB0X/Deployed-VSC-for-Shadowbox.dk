@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import MainPage from './pages/MainPage';
 import VisionPage from './pages/VisionPage';
 import EndpointPage from './pages/EndPointPage';
@@ -12,12 +12,26 @@ import ProtectedRoute from './components/ProtectedRoute';
 function App() {
   const [token, setToken] = useState(null);
 
+  // Load token from localStorage on app start
+  useEffect(() => {
+    const storedToken = localStorage.getItem('token');
+    if (storedToken) {
+      setToken(storedToken);
+    }
+  }, []);
+
+  // Save token on login
+  const handleLogin = (newToken) => {
+    localStorage.setItem('token', newToken);
+    setToken(newToken);
+  };
+
   return (
     <Routes>
       <Route path="/" element={<MainPage />} />
       <Route path="/vision" element={<VisionPage />} />
       <Route path="/endpoints" element={<EndpointPage />} />
-      <Route path="/login" element={<LoginPage onLogin={setToken} />} />
+      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
       <Route
         path="/upload"
         element={
