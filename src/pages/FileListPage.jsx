@@ -8,11 +8,11 @@ export default function FileList() {
   const fetchFiles = async () => {
     setLoading(true);
     try {
-      const res = await fetch('https://api.powersurge.dk/api/audio/result');
+      const res = await fetch('https://api.powersurge.dk/api/audio/file');
       const data = await res.json();
-      setFiles(data.results || []);
+      setFiles(data || []); // Expecting a flat array
     } catch (err) {
-      console.error('❌ Fejl i fetch:', err);
+      console.error('❌ Fetch error:', err);
     } finally {
       setLoading(false);
     }
@@ -54,10 +54,10 @@ export default function FileList() {
               <li key={f.id} className={styles.item}>
                 <div className={styles.fileInfo}>
                   <span className={styles.filename}>
-                    🎵 {f.audioFile?.filename || 'Unknown file'}
+                    🎵 {f.filename || 'Unknown file'}
                   </span>
                   <span className={styles.bpm}>
-                    BPM: {f.audioFile?.bpm?.toFixed(2) || 'N/A'}
+                    BPM: {f.bpm ? f.bpm.toFixed(2) : 'N/A'}
                   </span>
                 </div>
                 <button
@@ -65,7 +65,7 @@ export default function FileList() {
                   onClick={() => handleDelete(f.id)}
                   title="Delete file"
                 >
-                  🗑️
+                  🗑️ Delete
                 </button>
               </li>
             ))
