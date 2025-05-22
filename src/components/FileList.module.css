@@ -1,10 +1,12 @@
+/* FileList.module.css */
+
 .container {
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-radius: 12px;
     box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-    max-width: 700px;
+    max-width: 800px;
     margin: 3rem auto;
     color: white;
   }
@@ -28,14 +30,15 @@
     align-items: center;
     background: #111;
     margin-bottom: 1rem;
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 1.25rem;
     border-radius: 8px;
     box-shadow: 0 0 8px rgba(0, 212, 255, 0.05);
-    transition: background 0.2s ease;
+    transition: background 0.2s ease, transform 0.2s ease;
   }
   
   .item:hover {
-    background: #1a1a1a;
+    background: #1c1c1c;
+    transform: scale(1.01);
   }
   
   .fileInfo {
@@ -55,15 +58,19 @@
   
   .deleteButton {
     background: transparent;
-    border: none;
-    font-size: 1.3rem;
-    cursor: pointer;
+    border: 1px solid #ff4d4d;
     color: #ff4d4d;
-    transition: transform 0.2s ease;
+    font-size: 0.95rem;
+    padding: 0.4rem 0.8rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
   }
   
   .deleteButton:hover {
-    transform: scale(1.2);
+    background: #ff4d4d;
+    color: #000;
+    box-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
   }
   
   .loading {
@@ -71,15 +78,13 @@
     text-align: center;
     margin-top: 1rem;
   }
-  @media (max-width: 500px) {
+  
+  /* 🔁 Responsive Design */
+  @media (max-width: 600px) {
     .item {
       flex-direction: column;
       align-items: flex-start;
       gap: 0.5rem;
-    }
-  
-    .fileInfo {
-      width: 100%;
     }
   
     .deleteButton {
