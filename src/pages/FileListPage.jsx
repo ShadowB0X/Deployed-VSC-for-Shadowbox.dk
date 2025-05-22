@@ -63,7 +63,7 @@ export default function FileList() {
                 <button
                   className={styles.deleteButton}
                   onClick={() => handleDelete(f.id)}
-                  title=\"Delete file\"
+                  title="Delete file"
                 >
                   🗑️
                 </button>
