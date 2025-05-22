@@ -1,13 +1,15 @@
 /* FileList.module.css */
 
 .container {
-    background-color: #000; /* 🔧 solid black */
+    background-color: #000; /* Solid black background */
+    min-height: 100vh;       /* Ensure it fills full vertical screen */
     padding: 2rem;
-    border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.05);
-    max-width: 800px;
-    margin: 3rem auto;
+    border-radius: 0;        /* Remove if you want edge-to-edge black */
     color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
   }
   
   .heading {
@@ -21,6 +23,8 @@
     list-style: none;
     padding: 0;
     margin: 0;
+    width: 100%;
+    max-width: 800px;
   }
   
   .item {
