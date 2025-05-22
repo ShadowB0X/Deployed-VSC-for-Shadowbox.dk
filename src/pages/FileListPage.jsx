@@ -10,7 +10,7 @@ export default function FileList() {
     try {
       const res = await fetch('https://api.powersurge.dk/api/audio/file');
       const data = await res.json();
-      setFiles(data || []); // Expecting a flat array
+      setFiles(data.files || []);
     } catch (err) {
       console.error('❌ Fetch error:', err);
     } finally {
