@@ -1,14 +1,18 @@
 import { useEffect, useState } from 'react';
 import styles from '../components/FileList.module.css';
 
-export default function FileList() {
+export default function FileList({ token }) {
   const [files, setFiles] = useState([]);
   const [loading, setLoading] = useState(true);
 
   const fetchFiles = async () => {
     setLoading(true);
     try {
-      const res = await fetch('https://api.powersurge.dk/api/audio/file');
+      const res = await fetch('https://api.powersurge.dk/api/audio/file', {
+        headers: {
+          'Authorization': `Bearer ${token}`, // Optional: protect GET if needed
+        },
+      });
       const data = await res.json();
       setFiles(data.files || []);
     } catch (err) {
@@ -23,9 +27,13 @@ export default function FileList() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`https://api.powersurge.dk/api/audio/{id}`, {
+      const res = await fetch(`https://api.powersurge.dk/api/audio/${id}`, {
         method: 'DELETE',
+        headers: {
+          'Authorization': `Bearer ${token}`, // ✅ secure DELETE with token
+        },
       });
+
       if (res.ok) {
         setFiles(prev => prev.filter(file => file.id !== id));
       } else {
