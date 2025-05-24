@@ -81,6 +81,21 @@
   .deleteButton:hover {
     color: #ff0000;           /* 🔥 Brighter red on hover */
   }
+
+  .trashIcon {
+    color: #ff4d4d; /* Always red */
+    font-size: 1.1rem;
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    transition: color 0.2s ease;
+  }
+  
+  .deleteButton:hover .trashIcon {
+    color: #ff0000; /* Brighter red on hover */
+  }
+
+
   .loading {
     color: #aaa;
     text-align: center;

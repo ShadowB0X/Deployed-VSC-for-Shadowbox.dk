@@ -73,7 +73,7 @@ export default function FileList({ token }) {
                   onClick={() => handleDelete(f.id)}
                   title="Delete file"
                 >
-                  🗑️
+                  <span className={styles.trashIcon}>🗑️</span>
                 </button>
               </li>
             ))
