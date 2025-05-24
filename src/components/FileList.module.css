@@ -2,9 +2,9 @@
 
 .container {
     background-color: #000; /* Solid black background */
-    min-height: 100vh;       /* Ensure it fills full vertical screen */
+    min-height: 100vh;
     padding: 2rem;
-    border-radius: 0;        /* Remove if you want edge-to-edge black */
+    border-radius: 0;
     color: white;
     display: flex;
     flex-direction: column;
@@ -59,21 +59,22 @@
     color: #3b82f6;
   }
   
+  /* ✅ Smaller, lighter delete button */
   .deleteButton {
-    background: transparent;
-    border: 1px solid #ff4d4d;
+    background: none;
+    border: none;
     color: #ff4d4d;
-    font-size: 0.95rem;
-    padding: 0.4rem 0.8rem;
-    border-radius: 6px;
+    font-size: 0.85rem;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
+    opacity: 0.7;
+    transition: opacity 0.2s ease, color 0.2s ease;
   }
   
   .deleteButton:hover {
-    background: #ff4d4d;
-    color: #000;
-    box-shadow: 0 0 8px rgba(255, 77, 77, 0.6);
+    opacity: 1;
+    color: #ff0000;
   }
   
   .loading {
