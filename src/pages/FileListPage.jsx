@@ -23,7 +23,7 @@ export default function FileList() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(`https://api.powersurge.dk/api/audio/${id}`, {
+      const res = await fetch(`https://api.powersurge.dk/api/audio/{id}`, {
         method: 'DELETE',
       });
       if (res.ok) {
