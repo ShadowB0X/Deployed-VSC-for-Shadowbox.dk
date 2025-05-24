@@ -62,7 +62,7 @@
   .deleteButton {
     background: none;
     border: none;
-    color: #ff4d4d;
+    color: #ff4d4d;           /* 🔴 Always red */
     font-size: 1rem;
     line-height: 1;
     padding: 0.1rem;
@@ -74,15 +74,13 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    opacity: 0.7;
-    transition: opacity 0.2s ease, color 0.2s ease;
+    opacity: 1;               /* 🟢 Fully visible */
+    transition: color 0.2s ease;
   }
   
   .deleteButton:hover {
-    color: #ff0000;
-    opacity: 1;
+    color: #ff0000;           /* 🔥 Brighter red on hover */
   }
-  
   .loading {
     color: #aaa;
     text-align: center;
