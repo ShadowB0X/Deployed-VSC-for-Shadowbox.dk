@@ -10,7 +10,7 @@ export default function FileList({ token }) {
     try {
       const res = await fetch('https://api.powersurge.dk/api/audio/file', {
         headers: {
-          'Authorization': `Bearer ${token}`, // Optional: protect GET if needed
+          'Authorization': `Bearer ${token}`,
         },
       });
       const data = await res.json();
@@ -30,7 +30,7 @@ export default function FileList({ token }) {
       const res = await fetch(`https://api.powersurge.dk/api/audio/${id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${token}`, // ✅ secure DELETE with token
+          'Authorization': `Bearer ${token}`,
         },
       });
 
@@ -60,7 +60,7 @@ export default function FileList({ token }) {
           ) : (
             files.map(f => (
               <li key={f.id} className={styles.item}>
-                <div className={styles.fileInfo}>
+                <div className={styles.itemContent}>
                   <span className={styles.filename}>
                     🎵 {f.filename || 'Unknown file'}
                   </span>
