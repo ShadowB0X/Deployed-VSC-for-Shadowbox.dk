@@ -1,7 +1,7 @@
 // FileList.jsx
 import { useEffect, useState } from 'react';
 import styles from '../components/FileList.module.css';
-import BPMChart from './BPMChart';
+import BPMChart from '../components/BPMChart';
 
 export default function FileList({ token }) {
   const [files, setFiles] = useState([]);
@@ -82,9 +82,11 @@ export default function FileList({ token }) {
           </ul>
 
           {files.length > 0 && (
-            <div className={styles.bpmChartSection}>
+            <div className={styles.bpmChartSection} style={{ width: '100%', height: '400px' }}>
               <h3 className={styles.chartTitle}>BPM Overview</h3>
-              <BPMChart files={files} />
+              <div style={{ width: '100%', height: '100%' }}>
+                <BPMChart files={files} />
+              </div>
             </div>
           )}
         </>
