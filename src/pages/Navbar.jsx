@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import styles from '../components/Navbar.module.css';
+import styles from '../components/Navbar.module.css'; // You can change path to ../pages if needed
 
 export default function Navbar({ username, onLogout }) {
   const navigate = useNavigate();
@@ -16,6 +16,7 @@ export default function Navbar({ username, onLogout }) {
 
         <div className={styles.navLinks}>
           <Link to="/vision" className={styles.link}>Go to Vision</Link>
+
           <a
             href="https://api.powersurge.dk/api/routes"
             target="_blank"
@@ -24,7 +25,14 @@ export default function Navbar({ username, onLogout }) {
           >
             View API Endpoints
           </a>
+
+          {/* ✅ Upload button, visible only when logged in */}
+          {username && (
+            <Link to="/upload" className={styles.link}>Upload</Link>
+          )}
+
           <Link to="/filelist" className={styles.link}>File List</Link>
+
           {!username && <Link to="/login" className={styles.link}>Login</Link>}
           {!username && <Link to="/register" className={styles.link}>Register</Link>}
 
