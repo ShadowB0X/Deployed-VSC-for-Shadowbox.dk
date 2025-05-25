@@ -1,12 +1,21 @@
+import { Link, useNavigate } from 'react-router-dom';
 import styles from '../components/Navbar.module.css';
 
-export default function Navbar({ username }) {
+export default function Navbar({ username, onLogout }) {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    onLogout();
+    navigate('/login');
+  };
+
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
-        <a href="/" className={styles.logo}>SoundAPI</a>
+        <Link to="/" className={styles.logo}>SoundAPI</Link>
+
         <div className={styles.navLinks}>
-          <a href="/vision" className={styles.link}>Go to Vision</a>
+          <Link to="/vision" className={styles.link}>Go to Vision</Link>
           <a
             href="https://api.powersurge.dk/api/routes"
             target="_blank"
@@ -15,11 +24,17 @@ export default function Navbar({ username }) {
           >
             View API Endpoints
           </a>
-          <a href="/filelist" className={styles.link}>File List</a>
-          <a href="/login" className={styles.link}>Login</a>
-          <a href="/register" className={styles.link}>Register</a>
+          <Link to="/filelist" className={styles.link}>File List</Link>
+          {!username && <Link to="/login" className={styles.link}>Login</Link>}
+          {!username && <Link to="/register" className={styles.link}>Register</Link>}
+
           {username && (
-            <span className={styles.welcome}>Welcome, {username}</span>
+            <>
+              <span className={styles.welcome}>Welcome, {username}</span>
+              <button onClick={handleClick} className={styles.logoutButton}>
+                Logout
+              </button>
+            </>
           )}
         </div>
       </div>

@@ -8,21 +8,19 @@ import UploadPage from './pages/UploadPage';
 import FileListPage from './pages/FileListPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
-import Navbar from './pages/Navbar';
+import Navbar from './components/Navbar';
 
 function App() {
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState(null);
-  const [isLoading, setIsLoading] = useState(true); // ✅ Prevent premature redirect
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     const storedUsername = localStorage.getItem('username');
-
     if (storedToken) setToken(storedToken);
     if (storedUsername) setUsername(storedUsername);
-
-    setIsLoading(false); // ✅ Only render routes after loading
+    setIsLoading(false);
   }, []);
 
   const handleLogin = (newToken, userEmail) => {
@@ -32,11 +30,18 @@ function App() {
     setUsername(userEmail);
   };
 
-  if (isLoading) return null; // Or replace with a loading spinner
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    localStorage.removeItem('username');
+    setToken(null);
+    setUsername(null);
+  };
+
+  if (isLoading) return null;
 
   return (
     <>
-      <Navbar username={username} />
+      <Navbar username={username} onLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route path="/vision" element={<VisionPage />} />

@@ -1,63 +1,20 @@
-/* Navbar.module.css */
-:global(body), :global(html) {
-  margin: 0;
-  padding: 0;
-}
-
-.navbar {
-  width: 100%;
-  background-color: #000;
-  padding: 1rem 2rem;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 255, 255, 0.2);
-}
-
-.navContainer {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  color: #00d4ff;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.navLinks {
-  display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.link {
-  color: #fff;
-  background-color: #00d4ff;
-  padding: 0.5rem 1rem;
+.logoutButton {
+  background: transparent;
+  border: 1px solid #ff4d4d;
+  color: #ff4d4d;
+  padding: 0.4rem 0.8rem;
+  margin-left: 1rem;
   border-radius: 8px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-  font-weight: 500;
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+  cursor: pointer;
+  font-weight: bold;
+  transition: all 0.2s ease;
 }
 
-.link:hover {
-  background-color: #0070f3;
-}
-
-/* Optional: highlight "Register" more as CTA */
-.ctaLink {
-  background: linear-gradient(to right, #00d4ff, #0070f3);
+.logoutButton:hover {
+  background: #ff4d4d;
   color: #000;
-  font-weight: 700;
-  box-shadow: 0 0 16px rgba(0, 212, 255, 0.6);
 }
+
 .welcome {
   margin-left: 1rem;
   color: #00f2ff;
