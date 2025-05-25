@@ -1,4 +1,4 @@
-import '../components/IntroPage.module.css'; // We'll use plain CSS for a single-file setup
+import '../components/IntroPage.module.css';
 
 export default function IntroPage() {
   return (
@@ -15,7 +15,7 @@ export default function IntroPage() {
 
         <div className="intro-hero">
           <h1>Welcome to <span>SoundAPI</span></h1>
-          <p>Experience the power of audio<br />with precision and beauty</p>
+          <p>Analyze audio with elegance, precision, and rhythm.</p>
         </div>
       </div>
     </div>
