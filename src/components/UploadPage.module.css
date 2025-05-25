@@ -1,65 +1,57 @@
-/* UploadPage.module.css */
-
-@keyframes ambientGlow {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-  }
-  
-  .container {
+.container {
     position: relative;
     min-height: 100vh;
+    background-color: #000;
+    padding-top: 80px; /* space for sticky navbar */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
-    background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
-    background-size: 400% 400%;
-    animation: ambientGlow 20s ease infinite;
+    justify-content: flex-start;
     color: white;
-    padding: 2rem;
-    overflow: hidden;
+    z-index: 1;
   }
   
   .uploadBox {
     position: relative;
-    z-index: 2;
-    background: rgba(255, 255, 255, 0.02);
-    backdrop-filter: blur(8px);
+    background-color: rgba(0, 0, 0, 0.85);
+    border: 1px solid #00d4ff;
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
     padding: 2rem;
     border-radius: 12px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+    margin-top: 2rem;
+    max-width: 500px;
+    width: 90%;
+    z-index: 2;
   }
   
-  h2 {
+  .heading {
+    font-size: 1.5rem;
     color: #00d4ff;
-    margin-bottom: 1rem;
-    font-size: 1.6rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
   }
   
   .fileInput {
-    width: 100%;
-    margin-bottom: 1rem;
-    padding: 0.6rem;
-    background-color: #111;
-    color: white;
+    background: #111;
     border: 1px solid #333;
+    padding: 0.75rem;
     border-radius: 8px;
+    width: 100%;
+    color: white;
+    margin-bottom: 1rem;
   }
   
   .button {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #00d4ff;
+    background-color: #00c8ff;
     color: #000;
     font-weight: bold;
+    padding: 0.75rem 1.5rem;
     border: none;
     border-radius: 8px;
-    box-shadow: 0 0 12px #00f2ff;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
     cursor: pointer;
+    box-shadow: 0 0 12px #00f2ff;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
   }
   
   .button:hover {
@@ -69,6 +61,7 @@
   
   .message {
     margin-top: 1rem;
+    text-align: center;
     font-size: 0.95rem;
     color: #ccc;
   }
