@@ -1,6 +1,7 @@
+// FileList.jsx
 import { useEffect, useState } from 'react';
 import styles from '../components/FileList.module.css';
-import BPMChart from './BPMChart';
+import BPMChart from '../components/BPMChart';
 
 export default function FileList({ token }) {
   const [files, setFiles] = useState([]);
@@ -52,43 +53,40 @@ export default function FileList({ token }) {
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>📂 Audio Files</h2>
-
       {loading ? (
         <p className={styles.loading}>Loading files...</p>
-      ) : files.length === 0 ? (
-        <p className={styles.loading}>No audio files found yet.</p>
       ) : (
         <>
           <ul className={styles.list}>
-            {files.map(f => (
-              <li key={f.id} className={styles.item}>
-                <div className={styles.itemContent}>
-                  <span className={styles.filename}>
-                    🎵 {f.filename || 'Unknown file'}
-                  </span>
-                  <span className={styles.bpm}>
-                    BPM: {f.bpm ? f.bpm.toFixed(2) : 'N/A'}
-                  </span>
-                </div>
-                {token && (
-                  <button
-                    className={styles.deleteButton}
-                    onClick={() => handleDelete(f.id)}
-                    title="Delete file"
-                  >
-                    <span className={styles.trashIcon}>🗑️</span>
-                  </button>
-                )}
-              </li>
-            ))}
+            {files.length === 0 ? (
+              <p className={styles.loading}>No audio files found yet.</p>
+            ) : (
+              files.map(f => (
+                <li key={f.id} className={styles.item}>
+                  <div className={styles.itemContent}>
+                    <span className={styles.filename}>🎵 {f.filename || 'Unknown file'}</span>
+                    <span className={styles.bpm}>BPM: {f.bpm ? f.bpm.toFixed(2) : 'N/A'}</span>
+                  </div>
+                  {token && (
+                    <button
+                      className={styles.deleteButton}
+                      onClick={() => handleDelete(f.id)}
+                      title="Delete file"
+                    >
+                      <span className={styles.trashIcon}>🗑️</span>
+                    </button>
+                  )}
+                </li>
+              ))
+            )}
           </ul>
 
-          <div className={styles.chartSection}>
-          <h3>BPM Chart</h3>
-          <div style={{ width: '100%', height: 300 }}>
-          <BPMChart files={files} />
-  </div>
-</div>
+          {files.length > 0 && (
+            <div className={styles.bpmChartSection}>
+              <h3 className={styles.chartTitle}>BPM Overview</h3>
+              <BPMChart files={files} />
+            </div>
+          )}
         </>
       )}
     </div>
