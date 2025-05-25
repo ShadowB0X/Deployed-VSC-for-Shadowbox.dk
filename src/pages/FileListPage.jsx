@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import styles from '../components/FileList.module.css';
+import BPMChart from '../components/BPMChart';
 
 export default function FileList({ token }) {
   const [files, setFiles] = useState([]);
@@ -51,14 +52,15 @@ export default function FileList({ token }) {
   return (
     <div className={styles.container}>
       <h2 className={styles.heading}>📂 Audio Files</h2>
+
       {loading ? (
         <p className={styles.loading}>Loading files...</p>
+      ) : files.length === 0 ? (
+        <p className={styles.loading}>No audio files found yet.</p>
       ) : (
-        <ul className={styles.list}>
-          {files.length === 0 ? (
-            <p className={styles.loading}>No audio files found yet.</p>
-          ) : (
-            files.map(f => (
+        <>
+          <ul className={styles.list}>
+            {files.map(f => (
               <li key={f.id} className={styles.item}>
                 <div className={styles.itemContent}>
                   <span className={styles.filename}>
@@ -78,9 +80,15 @@ export default function FileList({ token }) {
                   </button>
                 )}
               </li>
-            ))
-          )}
-        </ul>
+            ))}
+          </ul>
+
+          {/* 📊 BPM Graph Section */}
+          <div className={styles.chartSection}>
+            <h3>BPM Chart</h3>
+            <BPMChart files={files} />
+          </div>
+        </>
       )}
     </div>
   );
