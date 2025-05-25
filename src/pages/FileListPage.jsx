@@ -83,11 +83,12 @@ export default function FileList({ token }) {
             ))}
           </ul>
 
-          {/* 📊 BPM Graph Section */}
           <div className={styles.chartSection}>
-            <h3>BPM Chart</h3>
-            <BPMChart files={files} />
-          </div>
+          <h3>BPM Chart</h3>
+          <div style={{ width: '100%', height: 300 }}>
+          <BPMChart files={files} />
+  </div>
+</div>
         </>
       )}
     </div>
