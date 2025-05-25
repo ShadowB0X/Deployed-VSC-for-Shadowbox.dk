@@ -32,6 +32,8 @@ function App() {
       <Route path="/vision" element={<VisionPage />} />
       <Route path="/endpoints" element={<EndpointPage />} />
       <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+      <Route path="/register" element={<RegisterPage />} />
+      
       <Route
         path="/upload"
         element={
@@ -40,8 +42,15 @@ function App() {
           </ProtectedRoute>
         }
       />
-      <Route path="/files" element={<FileListPage />} />
-      <Route path="/register" element={<RegisterPage />} />
+
+      <Route
+        path="/filelist"
+        element={
+          <ProtectedRoute token={token}>
+            <FileListPage token={token} />
+          </ProtectedRoute>
+        }
+      />
     </Routes>
   );
 }
