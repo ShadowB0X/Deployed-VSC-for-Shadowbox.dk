@@ -1,7 +1,7 @@
 // FileList.jsx
 import { useEffect, useState } from 'react';
 import styles from '../components/FileList.module.css';
-import BPMChart from '../components/BPMChart';
+import BPMChart from './BPMChart';
 
 export default function FileList({ token }) {
   const [files, setFiles] = useState([]);
