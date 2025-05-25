@@ -1,11 +1,14 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
+import { Navigate, useLocation } from 'react-router-dom';
 import styles from '../components/AuthForm.module.css';
 
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [redirect, setRedirect] = useState(false);
+  const [redirectTo, setRedirectTo] = useState(null);
+
+  const location = useLocation();
+  const redirectPath = location.state?.from?.pathname || '/upload';
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,19 +22,19 @@ export default function LoginPage({ onLogin }) {
 
       if (res.ok) {
         const data = await res.json();
-        const userEmail = data.user?.email || email; // fallback if backend doesn't send it
+        const userEmail = data.user?.email || email;
         onLogin(data.token, userEmail);
-        setRedirect(true);
+        setRedirectTo(redirectPath); // ✅ go back to original page
       } else {
         alert('Login failed');
       }
     } catch (err) {
       console.error('❌ Login error:', err);
-      alert('Login error. See console for details.');
+      alert('Login error. See console.');
     }
   };
 
-  if (redirect) return <Navigate to="/upload" replace />;
+  if (redirectTo) return <Navigate to={redirectTo} replace />;
 
   return (
     <div className={styles.authContainer}>

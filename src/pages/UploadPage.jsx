@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import styles from '../components/UploadPage.module.css';
 import WaveBackground from './WaveBackground';
-import Navbar from './Navbar';
 
 export default function UploadPage({ token }) {
   const [file, setFile] = useState(null);
@@ -39,7 +38,6 @@ export default function UploadPage({ token }) {
 
   return (
     <div className={styles.container}>
-      <Navbar />
       <WaveBackground />
 
       <form onSubmit={handleUpload} className={styles.uploadBox}>
