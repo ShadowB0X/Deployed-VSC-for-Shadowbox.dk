@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import styles from '../components/AuthForm.module.css';
-import Navbar from './Navbar';
 
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -30,7 +29,7 @@ export default function LoginPage({ onLogin }) {
 
   return (
     <div>
-      <Navbar />
+  
       <div className={styles.authContainer}>
         <form onSubmit={handleSubmit} className={styles.formBox}>
           <h2>Login</h2>
