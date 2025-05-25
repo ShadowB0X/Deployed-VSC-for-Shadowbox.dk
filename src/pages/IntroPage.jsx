@@ -1,19 +1,19 @@
-import '../components/IntroPage.module.css';
+import styles from '../components/IntroPage.module.css';
 
 export default function IntroPage() {
   return (
-    <div className="intro-container">
-      <div className="intro-overlay">
-        <nav className="intro-navbar">
-          <div className="intro-logo">SoundAPI</div>
-          <div className="intro-navLinks">
-            <a href="/docs">Docs</a>
-            <a href="/contact">Contact</a>
-            <a href="/login" className="intro-getStarted">Get Started</a>
+    <div className={styles.introContainer}>
+      <div className={styles.introOverlay}>
+        <nav className={styles.introNavbar}>
+          <div className={styles.introLogo}>SoundAPI</div>
+          <div className={styles.introNavLinks}>
+            <a href="/docs" className={styles.introLink}>Docs</a>
+            <a href="/contact" className={styles.introLink}>Contact</a>
+            <a href="/login" className={`${styles.introLink} ${styles.introGetStarted}`}>Get Started</a>
           </div>
         </nav>
 
-        <div className="intro-hero">
+        <div className={styles.introHero}>
           <h1>Welcome to <span>SoundAPI</span></h1>
           <p>Analyze audio with elegance, precision, and rhythm.</p>
         </div>
