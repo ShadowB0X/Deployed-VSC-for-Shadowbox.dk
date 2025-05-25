@@ -44,7 +44,7 @@ function App() {
       />
 
       <Route
-        path="/filelist"
+        path="/files"
         element={
           <ProtectedRoute token={token}>
             <FileListPage token={token} />

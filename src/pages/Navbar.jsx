@@ -16,7 +16,7 @@ export default function Navbar() {
           >
             View API Endpoints
           </a>
-          <a href="/filelist" className={styles.link}>Audio files</a> {/* ✅ NEW LINK */}
+          <a href="/files" className={styles.link}>Audio files</a> {/* ✅ NEW LINK */}
           <a href="/login" className={styles.link}>Login</a>
           <a href="/register" className={styles.link}>Register</a>
         </div>
