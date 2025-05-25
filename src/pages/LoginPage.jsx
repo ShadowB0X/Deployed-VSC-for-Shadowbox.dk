@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Navigate } from 'react-router-dom';
 import styles from '../components/AuthForm.module.css';
-import Navbar from './Navbar'; // ✅ Import Navbar
+import Navbar from './Navbar';
 
 export default function LoginPage({ onLogin }) {
   const [email, setEmail] = useState('');
@@ -10,6 +10,7 @@ export default function LoginPage({ onLogin }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const res = await fetch('https://api.powersurge.dk/api/user/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -17,21 +18,19 @@ export default function LoginPage({ onLogin }) {
     });
 
     if (res.ok) {
-      const { token } = await res.json();
-      onLogin(token);
+      const { token, user } = await res.json(); // assumes server returns { token, user }
+      onLogin(token, user.email);               // ✅ pass both token + username/email
       setRedirect(true);
     } else {
       alert('Login failed');
     }
   };
 
-  if (redirect) {
-    return <Navigate to="/upload" replace />;
-  }
+  if (redirect) return <Navigate to="/upload" replace />;
 
   return (
     <div>
-      <Navbar /> {/* ✅ Navbar at the top */}
+      <Navbar />
       <div className={styles.authContainer}>
         <form onSubmit={handleSubmit} className={styles.formBox}>
           <h2>Login</h2>

@@ -8,50 +8,53 @@ import UploadPage from './pages/UploadPage';
 import FileListPage from './pages/FileListPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
+import Navbar from './components/Navbar'; // ✅ if Navbar is global
 
 function App() {
   const [token, setToken] = useState(null);
+  const [username, setUsername] = useState(null);
 
-  // Load token from localStorage on app start
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    if (storedToken) {
-      setToken(storedToken);
-    }
+    const storedUser = localStorage.getItem('username');
+    if (storedToken) setToken(storedToken);
+    if (storedUser) setUsername(storedUser);
   }, []);
 
-  // Save token on login
-  const handleLogin = (newToken) => {
+  const handleLogin = (newToken, userEmail) => {
     localStorage.setItem('token', newToken);
+    localStorage.setItem('username', userEmail);
     setToken(newToken);
+    setUsername(userEmail);
   };
 
   return (
-    <Routes>
-      <Route path="/" element={<MainPage />} />
-      <Route path="/vision" element={<VisionPage />} />
-      <Route path="/endpoints" element={<EndpointPage />} />
-      <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
-      <Route path="/register" element={<RegisterPage />} />
-      
-      <Route
-        path="/upload"
-        element={
-          <ProtectedRoute token={token}>
-            <UploadPage token={token} />
-          </ProtectedRoute>
-        }
-      />
-
-      <Route
-        path="/files"
-        element={
-          <ProtectedRoute token={token}>
-            <FileListPage token={token} />
-          </ProtectedRoute>
-        }
-      />
-    </Routes>
+    <>
+      <Navbar username={username} />
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/vision" element={<VisionPage />} />
+        <Route path="/endpoints" element={<EndpointPage />} />
+        <Route path="/login" element={<LoginPage onLogin={handleLogin} />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route
+          path="/upload"
+          element={
+            <ProtectedRoute token={token}>
+              <UploadPage token={token} />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/filelist"
+          element={
+            <ProtectedRoute token={token}>
+              <FileListPage token={token} />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+    </>
   );
 }
 

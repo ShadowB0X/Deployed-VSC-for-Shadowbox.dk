@@ -1,6 +1,6 @@
 import styles from '../components/Navbar.module.css';
 
-export default function Navbar() {
+export default function Navbar({ username }) {
   return (
     <nav className={styles.navbar}>
       <div className={styles.navContainer}>
@@ -16,9 +16,12 @@ export default function Navbar() {
           >
             View API Endpoints
           </a>
-          <a href="/files" className={styles.link}>Audio files</a> {/* ✅ NEW LINK */}
+          <a href="/filelist" className={styles.link}>File List</a>
           <a href="/login" className={styles.link}>Login</a>
           <a href="/register" className={styles.link}>Register</a>
+          {username && (
+            <span className={styles.welcome}>Welcome, {username}</span>
+          )}
         </div>
       </div>
     </nav>
