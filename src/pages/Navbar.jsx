@@ -1,5 +1,4 @@
 import styles from '../components/Navbar.module.css';
-
 export default function Navbar({ username }) {
   return (
     <nav className={styles.navbar}>

@@ -8,7 +8,7 @@ import UploadPage from './pages/UploadPage';
 import FileListPage from './pages/FileListPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
-import Navbar from './components/Navbar'; // ✅ if Navbar is global
+import Navbar from './Navbar';
 
 function App() {
   const [token, setToken] = useState(null);
