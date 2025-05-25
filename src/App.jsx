@@ -8,7 +8,7 @@ import UploadPage from './pages/UploadPage';
 import FileListPage from './pages/FileListPage';
 import RegisterPage from './pages/RegisterPage';
 import ProtectedRoute from './components/ProtectedRoute';
-import Navbar from './pages/Navbar';
+import Navbar from './components/Navbar';
 
 function App() {
   const [token, setToken] = useState(null);
@@ -16,15 +16,15 @@ function App() {
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
-    const storedUser = localStorage.getItem('username');
+    const storedUsername = localStorage.getItem('username');
     if (storedToken) setToken(storedToken);
-    if (storedUser) setUsername(storedUser);
+    if (storedUsername) setUsername(storedUsername);
   }, []);
 
-  const handleLogin = (newToken, userEmail) => {
-    localStorage.setItem('token', newToken);
+  const handleLogin = (token, userEmail) => {
+    localStorage.setItem('token', token);
     localStorage.setItem('username', userEmail);
-    setToken(newToken);
+    setToken(token);
     setUsername(userEmail);
   };
 

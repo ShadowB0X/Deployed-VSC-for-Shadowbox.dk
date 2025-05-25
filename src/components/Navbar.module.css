@@ -58,3 +58,8 @@
   font-weight: 700;
   box-shadow: 0 0 16px rgba(0, 212, 255, 0.6);
 }
+.welcome {
+  margin-left: 1rem;
+  color: #00f2ff;
+  font-weight: bold;
+}
