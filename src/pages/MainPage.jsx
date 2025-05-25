@@ -3,7 +3,6 @@ import styles from '../components/MainPage.module.css';
 import WaveBackground from './WaveBackground';
 import ImageBox from './imageBox';
 import IntroPopup from './IntroPopup';
-import Navbar from './Navbar'; // ✅ new nav
 
 
 export default function MainPage() {
@@ -15,7 +14,6 @@ export default function MainPage() {
         <IntroPopup onFinish={() => setShowIntro(false)} />
       ) : (
         <>
-          <Navbar />
 
           {/* Main content with spacing under sticky navbar */}
           <main className={styles.contentWrapper}>
