@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'; // ✅ Add this
 import styles from '../components/AuthForm.module.css';
 
 export default function RegisterPage() {
@@ -6,6 +7,8 @@ export default function RegisterPage() {
   const [password, setPassword] = useState('');
   const [confirm, setConfirm] = useState('');
   const [message, setMessage] = useState('');
+
+  const navigate = useNavigate(); // ✅ Initialize navigate
 
   const handleRegister = async (e) => {
     e.preventDefault();
@@ -23,10 +26,11 @@ export default function RegisterPage() {
       });
 
       if (res.ok) {
-        setMessage('User registered successfully!');
+        setMessage('✅ User registered successfully! Redirecting...');
         setEmail('');
         setPassword('');
         setConfirm('');
+        setTimeout(() => navigate('/login'), 1500); // ✅ Redirect to login after 1.5s
       } else {
         let errorMsg = 'Unknown error';
         try {

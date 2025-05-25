@@ -5,17 +5,15 @@
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
   }
-  
   .authContainer {
+    padding-top: 80px; /* ✅ avoid overlap from sticky navbar */
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-  
     background: radial-gradient(circle at center, #0a0a0a 0%, #000 100%);
     background-size: 400% 400%;
     animation: ambientGlow 20s ease infinite;
-  
     color: white;
     padding: 2rem;
   }
