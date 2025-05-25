@@ -13,20 +13,26 @@ import Navbar from './pages/Navbar';
 function App() {
   const [token, setToken] = useState(null);
   const [username, setUsername] = useState(null);
+  const [isLoading, setIsLoading] = useState(true); // ✅ Prevent premature redirect
 
   useEffect(() => {
     const storedToken = localStorage.getItem('token');
     const storedUsername = localStorage.getItem('username');
+
     if (storedToken) setToken(storedToken);
     if (storedUsername) setUsername(storedUsername);
+
+    setIsLoading(false); // ✅ Only render routes after loading
   }, []);
 
-  const handleLogin = (token, userEmail) => {
-    localStorage.setItem('token', token);
+  const handleLogin = (newToken, userEmail) => {
+    localStorage.setItem('token', newToken);
     localStorage.setItem('username', userEmail);
-    setToken(token);
+    setToken(newToken);
     setUsername(userEmail);
   };
+
+  if (isLoading) return null; // Or replace with a loading spinner
 
   return (
     <>
@@ -46,7 +52,7 @@ function App() {
           }
         />
         <Route
-          path="/files"
+          path="/filelist"
           element={
             <ProtectedRoute token={token}>
               <FileListPage token={token} />
