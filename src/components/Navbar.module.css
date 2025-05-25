@@ -64,13 +64,14 @@
   border-radius: 6px;
   cursor: pointer;
   font-weight: 500;
-  display: inline-flex;        /* 🧠 prevents full-width stretch */
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  width: auto;                 /* ✅ restrict width */
+  width: auto;
   max-width: 150px;
-  transition: all 0.2s ease;
+  box-shadow: none !important;       /* ✅ remove all glow */
+  transition: background 0.2s ease, color 0.2s ease;
 }
 
 .logoutButton:hover {
