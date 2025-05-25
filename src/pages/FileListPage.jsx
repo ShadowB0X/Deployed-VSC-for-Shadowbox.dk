@@ -82,7 +82,7 @@ export default function FileList({ token }) {
           </ul>
 
           {files.length > 0 && (
-            <div className={styles.bpmChartSection} style={{ width: '100%', height: '400px' }}>
+            <div className={styles.bpmChartSection} style={{ width: '100%', height: '250px' }}>
               <h3 className={styles.chartTitle}>BPM Overview</h3>
               <div style={{ width: '100%', height: '100%' }}>
                 <BPMChart files={files} />
