@@ -68,13 +68,15 @@ export default function FileList({ token }) {
                     BPM: {f.bpm ? f.bpm.toFixed(2) : 'N/A'}
                   </span>
                 </div>
-                <button
-                  className={styles.deleteButton}
-                  onClick={() => handleDelete(f.id)}
-                  title="Delete file"
-                >
-                  <span className={styles.trashIcon}>🗑️</span>
-                </button>
+                {token && (
+                  <button
+                    className={styles.deleteButton}
+                    onClick={() => handleDelete(f.id)}
+                    title="Delete file"
+                  >
+                    <span className={styles.trashIcon}>🗑️</span>
+                  </button>
+                )}
               </li>
             ))
           )}
